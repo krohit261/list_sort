@@ -94,7 +94,18 @@ function dscYear(newData,oldData,newYear,oldYear,dataInserted,index){
     dataInserted = true;
     return true;
   }
-  if(parseInt(newYear) == parseInt(oldYear)){
+  else if(parseInt(newYear) == parseInt(oldYear)){
+    if(!dscRank(newData,oldData,oldData['DSC Rank'],newData[index]['DSC Rank'],dataInserted,index)){
+
+    }
+    else{
+      return true;
+    }
+  }
+  else if(parseInt(newYear) > parseInt(oldYear)){
+    return false;
+  }
+  else {
     if(!dscRank(newData,oldData,oldData['DSC Rank'],newData[index]['DSC Rank'],dataInserted,index)){
 
     }
