@@ -5,7 +5,6 @@ const path = require('path');
 const fs = require('fs');
 const xlsx = require('xlsx');
 
-
 const PORT = process.env.PORT || 8000;
 const app = express();
 
@@ -253,6 +252,6 @@ app.post('/upload', upload.single('excel'), function (req, res, next) {
 
 });
 
-app.listen(8000,()=>{
+app.listen(PORT,()=>{
   console.log('listening on 8000')
 })
