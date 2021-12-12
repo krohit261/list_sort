@@ -123,7 +123,12 @@ function dscRank(newData,oldData,newRank,oldRank,dataInserted,index){
     return true;
   }
   else if(parseInt(newRank) == parseInt(oldRank)){
-    
+    if(!appointmetDate(newData,oldData,oldData['Date of first Appointment as regular teacher'],newData[index]['Date of first Appointment as regular teacher'],dataInserted,index)){
+
+    }
+    else{
+      return true;
+    }
   }
   else if(parseInt(newRank) > parseInt(oldRank)){
     return false;
