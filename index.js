@@ -58,21 +58,21 @@ function joiningDate(newData,oldData,newDate,oldDate,dataInserted,index){
   if(parseInt(splitNewDate[2]) < parseInt(splitOldDate[2])){
     newData.splice(index,0,oldData);
     dataInserted = true;
-    console.log('true year')
+   
     return true;
   }
   else if(parseInt(splitNewDate[2]) == parseInt(splitOldDate[2])){
     if(parseInt(splitNewDate[1]) < parseInt(splitOldDate[1])){
       newData.splice(index,0,oldData);
       dataInserted = true;
-      console.log('true month')
+   
       return true;
     }
     else if(parseInt(splitNewDate[1]) == parseInt(splitOldDate[1])){
       if(parseInt(splitNewDate[0]) < parseInt(splitOldDate[0])){
         newData.splice(index,0,oldData);
         dataInserted = true;
-        console.log('true date')
+        
         return true;
       }
       else if(parseInt(splitNewDate[0]) == parseInt(splitOldDate[0])){
@@ -106,12 +106,7 @@ function dscYear(newData,oldData,newYear,oldYear,dataInserted,index){
     return false;
   }
   else {
-    if(!dscRank(newData,oldData,oldData['DSC Rank'],newData[index]['DSC Rank'],dataInserted,index)){
-
-    }
-    else{
-      return true;
-    }
+    return false;
   }
   return false;
 }
@@ -134,12 +129,7 @@ function dscRank(newData,oldData,newRank,oldRank,dataInserted,index){
     return false;
   }
   else {
-    if(!appointmetDate(newData,oldData,oldData['Date of first Appointment as regular teacher'],newData[index]['Date of first Appointment as regular teacher'],dataInserted,index)){
-
-    }
-    else{
-      return true;
-    }
+    return false
   }
   return false;
 }
@@ -151,21 +141,21 @@ function appointmetDate(newData,oldData,newDate,oldDate,dataInserted,index){
   if(parseInt(splitNewDate[2]) < parseInt(splitOldDate[2])){
     newData.splice(index,0,oldData);
     dataInserted = true;
-    console.log('true year')
+    
     return true;
   }
   else if(parseInt(splitNewDate[2]) == parseInt(splitOldDate[2])){
     if(parseInt(splitNewDate[1]) < parseInt(splitOldDate[1])){
       newData.splice(index,0,oldData);
       dataInserted = true;
-      console.log('true month')
+      
       return true;
     }
     else if(parseInt(splitNewDate[1]) == parseInt(splitOldDate[1])){
       if(parseInt(splitNewDate[0]) < parseInt(splitOldDate[0])){
         newData.splice(index,0,oldData);
         dataInserted = true;
-        console.log('true date')
+        
         return true;
       }
       else if(parseInt(splitNewDate[0]) == parseInt(splitOldDate[0])){
@@ -188,21 +178,21 @@ function dateOfBirth(newData,oldData,newDate,oldDate,dataInserted,index){
   if(parseInt(splitNewDate[2]) < parseInt(splitOldDate[2])){
     newData.splice(index,0,oldData);
     dataInserted = true;
-    console.log('true year')
+    
     return true;
   }
   else if(parseInt(splitNewDate[2]) == parseInt(splitOldDate[2])){
     if(parseInt(splitNewDate[1]) < parseInt(splitOldDate[1])){
       newData.splice(index,0,oldData);
       dataInserted = true;
-      console.log('true month')
+      
       return true;
     }
     else if(parseInt(splitNewDate[1]) == parseInt(splitOldDate[1])){
       if(parseInt(splitNewDate[0]) < parseInt(splitOldDate[0])){
         newData.splice(index,0,oldData);
         dataInserted = true;
-        console.log('true date')
+        
         return true;
       }
       else if(parseInt(splitNewDate[0]) == parseInt(splitOldDate[0])){
@@ -236,7 +226,7 @@ function sortData(data, newData){
 
 
 app.post('/upload', upload.single('excel'), function (req, res, next) {
-  console.log(req.file, req.body);
+  
 
   //Converting excel to JSON
   const wb = xlsx.readFileSync(req.file.path, {dateNF:'dd/mm/yyyy'});
