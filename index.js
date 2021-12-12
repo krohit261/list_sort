@@ -256,7 +256,7 @@ app.post('/upload', upload.single('excel'), function (req, res, next) {
   //Writing JSON to excel and sending excel
   let newWb = xlsx.utils.book_new();
   let newWs = xlsx.utils.json_to_sheet(newData);
-  xlsx.utils.book_append_sheet(newWb,newWs,'sorted list');
+  xlsx.utils.book_append_sheet(newWb,newWs,'Sheet1');
   var wbbuf = xlsx.write(newWb, {
     type: 'base64'
   });
